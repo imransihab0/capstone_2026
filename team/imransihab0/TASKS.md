@@ -10,7 +10,7 @@
   - [x] Implement `convex/schema.ts` with type-safe tables and vector search index.
   - [x] Write unit conversion engine (Bigha, Katha, Decimal, Acre to Hectares) with Vitest/Bun tests.
   - [x] Write price-per-unit calculation engine with delivery fee inclusion and tests.
-  - [ ] Create Convex mutations and queries for plot and marketplace listing CRUD.
+  - [x] Create Convex mutations and queries for plot, marketplace listing, order, and plan CRUD.
 
 - [ ] **M3: API Endpoints & Auth Guards**
   - [ ] Set up Bun + ElysiaJS / Convex HTTP actions with JWT authentication.
