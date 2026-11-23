@@ -1,0 +1,31 @@
+{
+  "name": "agrisense",
+  "version": "0.1.0",
+  "description": "Agentic AI platform for smallholder farmers in Bangladesh for crop planning and fair-price agricultural trade",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "convex:dev": "convex dev"
+  },
+  "keywords": [
+    "agrisense",
+    "agentic-ai",
+    "agriculture",
+    "bangladesh",
+    "convex",
+    "gemini",
+    "neo-brutalism"
+  ],
+  "author": "Imranul Islam Sihab <imran.sihab.0@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "convex": "^1.19.2"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.7.0"
+  }
+}

@@ -6,10 +6,10 @@
   - [x] Author `docs/FRONTEND_DESIGN.md` establishing the Neo-brutalist theme and tokens.
   - [x] Establish Git repository workflows, branches, and collaborator contexts.
 
-- [ ] **M2: Convex Database Schema & Core Arithmetic Engine**
-  - [ ] Implement `convex/schema.ts` with type-safe tables and vector search index.
-  - [ ] Write unit conversion engine (Bigha, Katha, Decimal, Acre to Hectares) with Vitest tests.
-  - [ ] Write price-per-unit calculation engine with delivery fee inclusion and tests.
+- [x] **M2: Convex Database Schema & Core Arithmetic Engine**
+  - [x] Implement `convex/schema.ts` with type-safe tables and vector search index.
+  - [x] Write unit conversion engine (Bigha, Katha, Decimal, Acre to Hectares) with Vitest/Bun tests.
+  - [x] Write price-per-unit calculation engine with delivery fee inclusion and tests.
   - [ ] Create Convex mutations and queries for plot and marketplace listing CRUD.
 
 - [ ] **M3: API Endpoints & Auth Guards**
