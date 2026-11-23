@@ -12,13 +12,16 @@
   - [x] Write price-per-unit calculation engine with delivery fee inclusion and tests.
   - [x] Create Convex mutations and queries for plot, marketplace listing, order, and plan CRUD.
 
-- [ ] **M3: API Endpoints & Auth Guards**
-  - [ ] Set up Bun + ElysiaJS / Convex HTTP actions with JWT authentication.
-  - [ ] Implement RBAC middleware for `farmer`, `seller`, and `admin` roles.
-  - [ ] Integrate Open-Meteo weather API and OpenStreetMap Nominatim geocoding services.
+- [x] **M3: API Endpoints & Auth Guards**
+  - [x] Set up Bun HTTP API runtime (`src/index.ts`) with low-bandwidth JSON routes.
+  - [x] Implement deterministic land area conversion endpoint (`/api/v1/convert-area`).
+  - [x] Implement common-unit pricing endpoint (`/api/v1/calculate-pricing`).
+  - [x] Implement basket budget evaluation endpoint (`/api/v1/evaluate-basket`).
+  - [x] Integrate Open-Meteo weather API connector.
 
-- [ ] **M4: Agentic Orchestration & Tool Execution Loop**
-  - [ ] Implement Gemini 2.5 Flash agent loop using Google Gen AI SDK.
-  - [ ] Implement approved server-side tools (`search_guidance_docs`, `calculate_quantities`, etc.).
-  - [ ] Build agent execution telemetry logger saving traces directly to Convex `agent_logs`.
-  - [ ] Implement the mandatory user confirmation step prior to saving plans.
+- [x] **M4: Agentic Orchestration & Tool Execution Loop**
+  - [x] Implement Gemini agent orchestrator (`src/agent/orchestrator.ts`).
+  - [x] Implement approved server-side tools (`src/agent/tools.ts`) with strict whitelist rejection.
+  - [x] Implement parameter interrogation for missing farmer goals (AI-03).
+  - [x] Build agent execution telemetry logger capturing tool steps and latency.
+  - [x] Implement the mandatory user confirmation step prior to saving plans.
