@@ -1,0 +1,430 @@
+/* ==========================================================================
+   Agrisense: High-Contrast B&W Neo-Brutalist Design System
+   Zero Third-Party Build Lock-in (Pure CSS3 Custom Properties)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Space+Grotesk:wght@700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  /* Binary High-Contrast Palette */
+  --bg-primary: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-muted: #F3F3F3;
+  --text-primary: #0A0A0A;
+  --text-muted: #4F4F4F;
+  --border-color: #0A0A0A;
+  --border-width: 2.5px;
+
+  /* Hard Brutalist Drop Shadows (Zero Blur) */
+  --shadow-sm: 3px 3px 0px #0A0A0A;
+  --shadow-md: 5px 5px 0px #0A0A0A;
+  --shadow-lg: 8px 8px 0px #0A0A0A;
+  --shadow-active: 1px 1px 0px #0A0A0A;
+
+  /* Halftone Canvas Background Pattern */
+  --dot-color: #0A0A0A;
+  --dot-bg: #FFFFFF;
+  --dot-size: 1.2px;
+  --dot-spacing: 24px;
+
+  /* Accents */
+  --badge-invert-bg: #0A0A0A;
+  --badge-invert-text: #FFFFFF;
+  --torch-glow: rgba(0, 0, 0, 0.06);
+
+  /* Fonts */
+  --font-heading: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+[data-theme="dark"] {
+  /* Inverted Binary Palette */
+  --bg-primary: #0A0A0A;
+  --bg-card: #121212;
+  --bg-muted: #1A1A1A;
+  --text-primary: #FFFFFF;
+  --text-muted: #B0B0B0;
+  --border-color: #FFFFFF;
+
+  --shadow-sm: 3px 3px 0px #FFFFFF;
+  --shadow-md: 5px 5px 0px #FFFFFF;
+  --shadow-lg: 8px 8px 0px #FFFFFF;
+  --shadow-active: 1px 1px 0px #FFFFFF;
+
+  --dot-color: #FFFFFF;
+  --dot-bg: #0A0A0A;
+
+  --badge-invert-bg: #FFFFFF;
+  --badge-invert-text: #0A0A0A;
+  --torch-glow: rgba(255, 255, 255, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--dot-bg);
+  background-image: radial-gradient(
+    var(--dot-color) var(--dot-size),
+    transparent var(--dot-size)
+  );
+  background-size: var(--dot-spacing) var(--dot-spacing);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.mono-tag, .badge, .status-pill, .unit-label, code {
+  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Navigation Bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg-primary);
+  border-bottom: var(--border-width) solid var(--border-color);
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.network-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border: var(--border-width) solid var(--border-color);
+  background: var(--bg-card);
+  box-shadow: 2px 2px 0px var(--border-color);
+}
+
+.network-pill.online {
+  color: var(--text-primary);
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Brutalist Buttons */
+.btn {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  user-select: none;
+}
+
+.btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-active);
+}
+
+.btn-invert {
+  background: var(--badge-invert-bg);
+  color: var(--badge-invert-text);
+  border-color: var(--border-color);
+}
+
+/* Infinite Marquee Ticker */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  border-bottom: var(--border-width) solid var(--border-color);
+  background: var(--bg-primary);
+  padding: 7px 0;
+  white-space: nowrap;
+}
+
+.ticker-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 32s linear infinite;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+/* Layout Container */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Tactile Tape Stickers */
+.tape-badge {
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  background: var(--bg-primary);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: 2px 2px 0px var(--border-color);
+  padding: 3px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  transform: rotate(-2.5deg);
+  z-index: 5;
+}
+
+/* Neo-Brutalist Cards */
+.brutalist-card {
+  position: relative;
+  background: var(--bg-card);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+/* Micro-Interaction 1: Spotlight Card */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    var(--torch-glow),
+    transparent 70%
+  );
+  opacity: 1;
+}
+
+/* Hero & Open Peeps Character Area */
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 860px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+  }
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 16px;
+  letter-spacing: -0.04em;
+}
+
+.hero-desc {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+/* Open Peeps Character Bubble */
+.character-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speech-bubble {
+  position: relative;
+  background: var(--bg-primary);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 4px;
+  max-width: 320px;
+  text-align: center;
+}
+
+.speech-bubble::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 12px 10px 0 10px;
+  border-style: solid;
+  border-color: var(--border-color) transparent transparent transparent;
+}
+
+.open-peeps-avatar {
+  width: 130px;
+  height: 130px;
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-md);
+  background: var(--bg-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  user-select: none;
+}
+
+/* Form Controls */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.input-control {
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: var(--border-width) solid var(--border-color);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  outline: none;
+  box-shadow: 2px 2px 0px var(--border-color);
+}
+
+.input-control:focus {
+  transform: translate(-1px, -1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Listing & Marketplace Grid */
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.listing-card {
+  background: var(--bg-primary);
+  border: var(--border-width) solid var(--border-color);
+  box-shadow: var(--shadow-sm);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.listing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.unit-price-hero {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 12px 0;
+}
+
+.unit-price-sub {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* Source Badges */
+.source-citation {
+  display: inline-block;
+  background: var(--bg-muted);
+  border: 1.5px solid var(--border-color);
+  padding: 4px 8px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+/* Footer */
+.footer {
+  border-top: var(--border-width) solid var(--border-color);
+  background: var(--bg-primary);
+  padding: 24px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  margin-top: 48px;
+}

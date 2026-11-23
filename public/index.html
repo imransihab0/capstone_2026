@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agrisense 🌾 | Agentic AI Platform for Crop Planning & Fair-Price Trade</title>
+  <meta name="description" content="Neo-brutalist agentic AI platform for smallholder farmers in Bangladesh for crop planning and fair-price agricultural trade." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="brand-wrap">
+      <span class="brand-logo">🌾 AGRISENSE</span>
+      <span id="network-pill" class="network-pill online">● ONLINE / 3G SYNCED</span>
+    </div>
+    <div class="nav-actions">
+      <button id="theme-toggle-btn" class="btn magnet-btn">🌙 DARK MODE</button>
+    </div>
+  </nav>
+
+  <!-- Infinite Marquee Ticker -->
+  <div class="ticker-wrap">
+    <div class="ticker-content">
+      ✦ TANGAIL AEZ-8: BORO SOWING WINDOW OPEN ✦ UREA DEALER RATE: TK 27.00/KG ✦ NO HEAVY RAIN IN NEXT 5 DAYS — SAFE FOR TOP DRESSING ✦ 100% TRACEABLE AGRONOMIC CITATIONS ✦ ZERO LLM ARITHMETIC INVARIANT ✦ OFFLINE READY AT VILLAGE SHOPS ✦
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- Hero Section with Open Peeps Character -->
+    <section class="hero-section brutalist-card spotlight-card">
+      <div class="tape-badge">★ CAPSTONE PROTOTYPE / SE-331</div>
+      <div>
+        <h1 class="hero-title decrypted-text">CROP PLANNING WITHOUT THE GUESSWORK.</h1>
+        <p class="hero-desc">
+          Plan your seasonal crop, calculate exact fertilizer quantities for your plot, and compare market prices down to the kilogram — verified by official BARC guidelines and local weather feeds.
+        </p>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="#planner-section" class="btn btn-invert magnet-btn">Generate Season Plan ✦</a>
+          <a href="#converter-section" class="btn magnet-btn">Convert Plot Area 📐</a>
+        </div>
+      </div>
+
+      <!-- Open Peeps Character Area -->
+      <div class="character-box">
+        <div id="peep-speech" class="speech-bubble">
+          "Welcome! Tell me your plot size in Bigha or Decimal and I'll build your costed plan."
+        </div>
+        <div id="open-peeps-avatar" class="open-peeps-avatar">
+          👨‍🌾
+        </div>
+        <span class="mono-tag" style="margin-top: 10px;">KRISHOK ASSISTANT</span>
+      </div>
+    </section>
+
+    <!-- Animated Metric Badges -->
+    <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px;">
+      <div class="brutalist-card" style="padding: 16px; text-align: center;">
+        <span class="mono-tag">ML ACCURACY</span>
+        <div class="unit-price-hero"><span class="animated-counter" data-target="94">0</span>.2%</div>
+        <div class="unit-price-sub">Random Forest v1.2</div>
+      </div>
+      <div class="brutalist-card" style="padding: 16px; text-align: center;">
+        <span class="mono-tag">INITIAL PAYLOAD</span>
+        <div class="unit-price-hero">&lt; <span class="animated-counter" data-target="250">0</span> KB</div>
+        <div class="unit-price-sub">Low-Data 3G Budget</div>
+      </div>
+      <div class="brutalist-card" style="padding: 16px; text-align: center;">
+        <span class="mono-tag">LLM ARITHMETIC</span>
+        <div class="unit-price-hero"><span class="animated-counter" data-target="0">0</span> %</div>
+        <div class="unit-price-sub">100% Deterministic Code</div>
+      </div>
+      <div class="brutalist-card" style="padding: 16px; text-align: center;">
+        <span class="mono-tag">OFFICIAL CITATIONS</span>
+        <div class="unit-price-hero"><span class="animated-counter" data-target="100">0</span> %</div>
+        <div class="unit-price-sub">BARC 2024 & BRRI Manuals</div>
+      </div>
+    </section>
+
+    <!-- Section 1: Deterministic Land Area Converter -->
+    <section id="converter-section" class="brutalist-card spotlight-card">
+      <div class="tape-badge">✦ ZERO-ARITHMETIC ENGINE</div>
+      <h3>Land Area Normalizer (Regional Units to Hectares)</h3>
+      <p class="unit-price-sub" style="margin-bottom: 16px;">
+        Official recommendation guides give quantities per hectare. Enter your land size in local units below to calculate exact dimensions.
+      </p>
+
+      <form id="converter-form" class="form-grid">
+        <div class="input-group">
+          <label for="conv-amount">Land Area</label>
+          <input type="number" id="conv-amount" class="input-control" value="1" step="0.1" min="0.1" />
+        </div>
+        <div class="input-group">
+          <label for="conv-unit">Entered Unit</label>
+          <select id="conv-unit" class="input-control">
+            <option value="bigha" selected>Bigha (Standard 33 Decimal)</option>
+            <option value="katha">Katha (1/20 Bigha)</option>
+            <option value="decimal">Decimal (Shotok)</option>
+            <option value="acre">Acre (100 Decimal)</option>
+            <option value="hectare">Hectare (ha)</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label for="conv-district">District Calibration</label>
+          <select id="conv-district" class="input-control">
+            <option value="standard" selected>Tangail / Central (33 Dec/Bigha)</option>
+            <option value="dinajpur">Dinajpur / North (50 Dec/Bigha)</option>
+            <option value="rajshahi">Rajshahi (50 Dec/Bigha)</option>
+            <option value="bogura">Bogura (33 Dec/Bigha)</option>
+          </select>
+        </div>
+      </form>
+
+      <div id="converter-result">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+    <!-- Section 2: Agentic Crop Planning Generator -->
+    <section id="planner-section" class="brutalist-card spotlight-card">
+      <div class="tape-badge">✦ AGENTIC AI ORCHESTRATOR</div>
+      <h3>Seasonal Crop Planning & Budget Fitter</h3>
+      <p class="unit-price-sub" style="margin-bottom: 16px;">
+        Gemini 2.5 Flash coordinates weather forecasts, BARC fertilizer recommendations, and your cash budget.
+      </p>
+
+      <form id="planner-form">
+        <div class="form-grid">
+          <div class="input-group">
+            <label for="plan-crop">Target Crop</label>
+            <select id="plan-crop" class="input-control">
+              <option value="Boro Rice" selected>Boro Rice (BRRI dhan28/29)</option>
+              <option value="Aman Rice">Transplanted Aman Rice</option>
+              <option value="Wheat">Wheat (BARI Gom-33)</option>
+              <option value="Maize">Hybrid Maize</option>
+              <option value="Potato">Table Potato (Diamant)</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="plan-area">Plot Area</label>
+            <input type="number" id="plan-area" class="input-control" value="1" min="0.1" step="0.1" required />
+          </div>
+          <div class="input-group">
+            <label for="plan-unit">Area Unit</label>
+            <select id="plan-unit" class="input-control">
+              <option value="bigha" selected>Bigha</option>
+              <option value="decimal">Decimal</option>
+              <option value="acre">Acre</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="plan-district">Plot District</label>
+            <input type="text" id="plan-district" class="input-control" value="Tangail" required />
+          </div>
+          <div class="input-group">
+            <label for="plan-budget">Budget Ceiling (Tk)</label>
+            <input type="number" id="plan-budget" class="input-control" value="8000" min="1000" step="100" required />
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-invert magnet-btn" style="margin-top: 10px;">
+          Build Verifiable Plan ✦
+        </button>
+      </form>
+
+      <div id="planner-results" class="brutalist-card" style="display: none; margin-top: 24px;">
+        <!-- Filled dynamically -->
+      </div>
+    </section>
+
+    <!-- Section 3: Fair-Price Marketplace Catalog -->
+    <section class="brutalist-card spotlight-card">
+      <div class="tape-badge">✦ COMMON-UNIT VALUE RANKING</div>
+      <h3>Fair-Price Marketplace Catalog</h3>
+      <p class="unit-price-sub">
+        Inputs are normalized into total cost per standard kilogram or liter (including delivery charges) so you can compare 250g packets vs 1kg bags directly.
+      </p>
+
+      <div id="marketplace-grid" class="listing-grid">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p><strong>AGRISENSE</strong> — SE-331 Software Engineering Design Capstone Project | Group 17</p>
+    <p style="margin-top: 6px;">Daffodil International University (DIU) | Supervisor: Md. Rashedul Alam</p>
+    <p style="margin-top: 6px;">Team Lead: <a href="https://github.com/imransihab0" target="_blank" style="color: inherit;">Imranul Islam Sihab (@imransihab0)</a> | Contributors: <a href="https://github.com/imtiazdeepto" target="_blank" style="color: inherit;">@imtiazdeepto</a>, <a href="https://github.com/zharmo" target="_blank" style="color: inherit;">@zharmo</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

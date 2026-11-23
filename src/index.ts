@@ -43,6 +43,26 @@ const server = Bun.serve({
       return jsonResponse({ ok: true });
     }
 
+    // Serve Static Neo-Brutalist Client (Zero Build Lock-in)
+    if (url.pathname === "/" || url.pathname === "/index.html") {
+      return new Response(Bun.file("public/index.html"));
+    }
+    if (url.pathname === "/styles.css") {
+      return new Response(Bun.file("public/styles.css"), {
+        headers: { "Content-Type": "text/css" },
+      });
+    }
+    if (url.pathname === "/app.js") {
+      return new Response(Bun.file("public/app.js"), {
+        headers: { "Content-Type": "application/javascript" },
+      });
+    }
+    if (url.pathname === "/sw.js") {
+      return new Response(Bun.file("public/sw.js"), {
+        headers: { "Content-Type": "application/javascript" },
+      });
+    }
+
     // Health check
     if (url.pathname === "/api/v1/health" && req.method === "GET") {
       return jsonResponse({
