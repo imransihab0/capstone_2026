@@ -6,19 +6,20 @@
   - [ ] Write exploratory data analysis (EDA) notebooks and data validation scripts.
   - [ ] Split datasets into train/validation/test sets with stratified sampling.
 
-- [ ] **M2: 4-Algorithm Training & Model Comparison**
-  - [ ] Train Logistic Regression baseline for crop suitability.
-  - [ ] Train Random Forest, XGBoost, and SVM classifiers.
-  - [ ] Perform hyperparameter tuning and cross-validation.
-  - [ ] Compile comprehensive model comparison table (Accuracy, Precision, Recall, F1).
-  - [ ] Train 4 regression/classification algorithms for price anomaly detection.
+- [x] **M2: 4-Algorithm Training & Model Comparison**
+  - [x] Train Logistic Regression baseline for crop suitability.
+  - [x] Train Random Forest, XGBoost, and SVM classifiers.
+  - [x] Perform hyperparameter tuning and cross-validation.
+  - [x] Compile comprehensive model comparison table (Accuracy, Precision, Recall, F1).
+  - [x] Train 4 regression/classification algorithms for price anomaly detection.
 
-- [ ] **M3: Model Serialization & FastAPI Service**
-  - [ ] Export best performing models using `joblib`.
-  - [ ] Build FastAPI microservice under `services/ml-inference/`.
-  - [ ] Implement `POST /api/v1/predict/crop-suitability`.
-  - [ ] Implement `POST /api/v1/predict/price-status`.
-  - [ ] Write automated pytest test cases covering input schema validation.
+- [x] **M3: Model Serialization & FastAPI Service**
+  - [x] Implement inference pipeline under `services/ml-inference/app/pipeline.py`.
+  - [x] Build FastAPI microservice under `services/ml-inference/app/main.py`.
+  - [x] Implement `POST /api/v1/predict/crop-suitability`.
+  - [x] Implement `POST /api/v1/predict/price-status`.
+  - [x] Implement `GET /api/v1/models/compare` returning 4-algorithm metrics.
+  - [x] Write automated unit tests in `services/ml-inference/tests/test_inference.py`.
 
 - [ ] **M4: Evaluation Report & Documentation**
   - [ ] Author evaluation report section for the final Capstone report.
