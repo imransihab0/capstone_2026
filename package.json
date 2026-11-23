@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "bun run src/index.ts",
     "test": "bun test",
+    "eval": "bun run scripts/evaluate_scenarios.ts",
     "typecheck": "tsc --noEmit",
     "convex:dev": "convex dev"
   },

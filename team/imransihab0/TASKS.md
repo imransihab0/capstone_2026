@@ -25,3 +25,10 @@
   - [x] Implement parameter interrogation for missing farmer goals (AI-03).
   - [x] Build agent execution telemetry logger capturing tool steps and latency.
   - [x] Implement the mandatory user confirmation step prior to saving plans.
+
+- [x] **M5: Integration, CI/CD & Delivery**
+  - [x] Integrate ML microservice models and client components.
+  - [x] Configure automated GitHub Actions CI/CD workflow (`.github/workflows/ci.yml`).
+  - [x] Author Convex database seeding script (`convex/seed.ts`).
+  - [x] Author and pass all 5 Capstone evaluation benchmark scenarios (`scripts/evaluate_scenarios.ts`).
+  - [x] Finalize verification reports for Capstone defense.

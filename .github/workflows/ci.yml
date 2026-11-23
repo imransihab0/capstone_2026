@@ -1,0 +1,41 @@
+name: Agrisense CI
+
+on:
+  push:
+    branches: [main, feat/*]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test-engine-and-api:
+    name: TypeScript Engine & Agent Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Bun Runtime
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Install Node Dependencies
+        run: bun install
+
+      - name: Run Deterministic Arithmetic & Agent Tests
+        run: bun test
+
+  test-ml-inference:
+    name: Python ML Inference Service Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Run Python ML Unit Tests
+        run: |
+          cd services/ml-inference
+          python3 -m unittest discover tests
