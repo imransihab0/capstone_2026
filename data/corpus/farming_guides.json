@@ -1,0 +1,47 @@
+[
+  {
+    "docTitle": "BARC Fertilizer Recommendation Guide 2024",
+    "sourceOrg": "BARC",
+    "editionYear": 2024,
+    "section": "Section 4.1.2: Boro Rice High Yielding Variety (HYV)",
+    "crop": "Boro Rice",
+    "aezCode": "AEZ-8",
+    "content": "For High Yielding Varieties of Boro Rice (e.g. BRRI dhan28, BRRI dhan29) in AEZ-8 (Young Brahmaputra and Jamuna Floodplain), the recommended fertilizer doses per hectare are: Urea 260 kg, TSP 110 kg, MoP 140 kg, Gypsum 75 kg, and Zinc Sulphate 10 kg. All TSP, Gypsum, Zinc, and one-third of MoP should be applied as a basal dose during final land preparation. Urea should be applied in three equal splits: first split at 15-20 days after transplanting (early tillering), second split at 30-35 days (maximum tillering), and third split 5-7 days before panicle initiation."
+  },
+  {
+    "docTitle": "BARC Fertilizer Recommendation Guide 2024",
+    "sourceOrg": "BARC",
+    "editionYear": 2024,
+    "section": "Section 4.1.1: Transplanted Aman Rice (T. Aman)",
+    "crop": "Aman Rice",
+    "aezCode": "AEZ-8",
+    "content": "For Transplanted Aman Rice varieties in Medium High land, apply per hectare: Urea 200 kg, TSP 80 kg, MoP 100 kg, Gypsum 60 kg, and Zinc Sulphate 7.5 kg. Apply all TSP, MoP, and Gypsum at final land preparation. Split Urea into two or three applications depending on field water management."
+  },
+  {
+    "docTitle": "BRRI Rice Production Manual",
+    "sourceOrg": "BRRI",
+    "editionYear": 2023,
+    "section": "Chapter 3: Seedbed Preparation & Transplanting Practices",
+    "crop": "Boro Rice",
+    "aezCode": "All",
+    "content": "Prepare wet seedbed in late November to early December. Use 40 kg healthy seed per hectare. Transplant 30-35 day old seedlings at a spacing of 20 cm x 15 cm with 2-3 seedlings per hill. Maintain shallow water (2-3 cm) during the first 10 days to encourage rapid root establishment."
+  },
+  {
+    "docTitle": "BARC Fertilizer Recommendation Guide 2024",
+    "sourceOrg": "BARC",
+    "editionYear": 2024,
+    "section": "Section 4.2: Wheat Cultivation in Floodplain Soils",
+    "crop": "Wheat",
+    "aezCode": "AEZ-11",
+    "content": "Recommended per hectare for wheat (BARI Gom-33): Urea 220 kg, TSP 140 kg, MoP 100 kg, Gypsum 80 kg, and Boric Acid 6 kg. Apply two-thirds of Urea and all other fertilizers at final land preparation. Top dress remaining one-third of Urea at first irrigation (crown root initiation stage, 17-21 days after sowing)."
+  },
+  {
+    "docTitle": "BARC Fertilizer Recommendation Guide 2024",
+    "sourceOrg": "BARC",
+    "editionYear": 2024,
+    "section": "Section 4.3: Hybrid Maize Production Guidelines",
+    "crop": "Maize",
+    "aezCode": "AEZ-8",
+    "content": "Hybrid Maize requires higher nutrient support. Recommended per hectare: Urea 350 kg, TSP 200 kg, MoP 180 kg, Gypsum 120 kg, Zinc Sulphate 12 kg, and Boric Acid 7 kg. Split Urea and MoP into three stages: basal, 30 days after emergence (knee-high stage), and at tassel emergence."
+  }
+]
