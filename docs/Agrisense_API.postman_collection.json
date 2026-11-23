@@ -1,0 +1,117 @@
+{
+  "info": {
+    "name": "Agrisense Capstone API Collection",
+    "description": "Postman collection covering Bun API runtime and FastAPI ML inference endpoints for Agrisense (SE-331 Capstone Project)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check (Bun API)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/api/v1/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "health"]
+        }
+      }
+    },
+    {
+      "name": "Land Area Normalizer (1 Bigha to Hectares)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"amount\": 1,\n  \"unit\": \"bigha\",\n  \"district\": \"tangail\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/convert-area",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "convert-area"]
+        }
+      }
+    },
+    {
+      "name": "Common-Unit Price Normalizer (Proposal Scenario P1)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": \"p-test\",\n  \"sellerId\": \"s-1\",\n  \"productName\": \"Furadan 3G\",\n  \"productType\": \"pesticide\",\n  \"brand\": \"Furadan\",\n  \"packSize\": 250,\n  \"packUnit\": \"g\",\n  \"price\": 180,\n  \"deliveryCharge\": 20\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/calculate-pricing",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "calculate-pricing"]
+        }
+      }
+    },
+    {
+      "name": "Agentic Planning Loop (Happy Path)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"farmer-postman\",\n  \"cropGoal\": \"Boro Rice\",\n  \"plotArea\": 1,\n  \"plotUnit\": \"bigha\",\n  \"district\": \"Tangail\",\n  \"budgetCap\": 8000\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/api/v1/plan",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["api", "v1", "plan"]
+        }
+      }
+    },
+    {
+      "name": "ML Microservice: Crop Suitability Prediction",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"soil_n\": 60,\n  \"soil_p\": 30,\n  \"soil_k\": 45,\n  \"soil_ph\": 6.5,\n  \"temperature\": 25,\n  \"humidity\": 78,\n  \"rainfall\": 130\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/predict/crop-suitability",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "predict", "crop-suitability"]
+        }
+      }
+    },
+    {
+      "name": "ML Microservice: 4-Model Comparative Benchmark",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/api/v1/models/compare",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "models", "compare"]
+        }
+      }
+    }
+  ]
+}
