@@ -73,6 +73,20 @@ export interface GeneratedPlanResult {
   };
 }
 
+export const DISTRICT_COORDINATES: Record<string, { lat: number; lon: number; aez: string }> = {
+  tangail: { lat: 24.2513, lon: 89.9167, aez: "AEZ-8" },
+  dinajpur: { lat: 25.6217, lon: 88.6354, aez: "AEZ-1" },
+  rajshahi: { lat: 24.3745, lon: 88.6042, aez: "AEZ-11" },
+  bogura: { lat: 24.8465, lon: 89.3777, aez: "AEZ-25" },
+  mymensingh: { lat: 24.7471, lon: 90.4203, aez: "AEZ-9" },
+  rangpur: { lat: 25.7439, lon: 89.2752, aez: "AEZ-3" },
+  comilla: { lat: 23.4607, lon: 91.1809, aez: "AEZ-19" },
+  jashore: { lat: 23.1664, lon: 89.2081, aez: "AEZ-11" },
+  sylhet: { lat: 24.8949, lon: 91.8687, aez: "AEZ-20" },
+  barishal: { lat: 22.7010, lon: 90.3535, aez: "AEZ-13" },
+  dhaka: { lat: 23.8103, lon: 90.4125, aez: "AEZ-8" },
+};
+
 /**
  * Executes the Agrisense planning pipeline with closed-loop tool calls.
  */
@@ -84,6 +98,10 @@ export async function runPlanningAgent(
   const sessionId = `session_${Date.now()}_${Math.random().toString(36).substring(7)}`;
   const steps: AgentExecutionStep[] = [];
   const sourcesCited: string[] = [];
+
+  // Resolve district coordinates and Agro-Ecological Zone
+  const districtKey = (input.district || "tangail").toLowerCase().trim();
+  const geo = DISTRICT_COORDINATES[districtKey] || DISTRICT_COORDINATES.tangail;
 
   // Step 1: Check for required planning parameters (AI-03 Requirement)
   const missingFields: string[] = [];
@@ -134,13 +152,13 @@ export async function runPlanningAgent(
   const guidanceRes = await callApprovedTool("search_farming_guidance", {
     query: `Recommended fertilizer application for ${input.cropGoal}`,
     crop: input.cropGoal,
-    aez_code: "AEZ-8",
+    aez_code: geo.aez,
   });
 
-  // Step 3: Fetch weather window for district (Tangail / regional default coordinates)
+  // Step 3: Fetch weather window for district coordinates
   const weatherRes = await callApprovedTool("get_weather_forecast", {
-    latitude: 24.2513,
-    longitude: 89.9167,
+    latitude: geo.lat,
+    longitude: geo.lon,
   });
 
   // Step 4: ML Crop Suitability assessment

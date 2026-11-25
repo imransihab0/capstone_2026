@@ -107,6 +107,20 @@ const server = Bun.serve({
       }
     }
 
+    // Market Listings Catalog endpoint (Common-Unit Ranked)
+    if (url.pathname === "/api/v1/listings" && req.method === "GET") {
+      const sampleCatalog: InputListing[] = [
+        { id: "1", sellerId: "s-1", isVerifiedSeller: true, productName: "Carbofuran 3G", brand: "Furadan", productType: "pesticide", packSize: 250, packUnit: "g", price: 180, deliveryCharge: 20 },
+        { id: "2", sellerId: "s-2", isVerifiedSeller: true, productName: "Carbofuran 3G (Bulk)", brand: "Furadan", productType: "pesticide", packSize: 1, packUnit: "kg", price: 620, deliveryCharge: 60 },
+        { id: "3", sellerId: "s-3", isVerifiedSeller: true, productName: "Granular Urea Bag", brand: "BCIC Standard", productType: "urea", packSize: 50, packUnit: "kg", price: 1350, deliveryCharge: 150 },
+        { id: "4", sellerId: "s-4", isVerifiedSeller: true, productName: "Triple Superphosphate (TSP)", brand: "Kafco Brand", productType: "tsp", packSize: 25, packUnit: "kg", price: 800, deliveryCharge: 100 },
+        { id: "5", sellerId: "s-5", isVerifiedSeller: true, productName: "Muriate of Potash (MoP)", brand: "BADC Dealer", productType: "mop", packSize: 25, packUnit: "kg", price: 550, deliveryCharge: 80 },
+        { id: "6", sellerId: "s-6", isVerifiedSeller: true, productName: "Gypsum Fertilizer", brand: "Govt Subsidized", productType: "gypsum", packSize: 25, packUnit: "kg", price: 350, deliveryCharge: 60 },
+      ];
+      const ranked = rankListingsByCommonUnitPrice(sampleCatalog);
+      return jsonResponse(ranked);
+    }
+
     // Common-Unit Price Normalization endpoint
     if (url.pathname === "/api/v1/calculate-pricing" && req.method === "POST") {
       try {
