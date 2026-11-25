@@ -3,13 +3,17 @@ Pydantic Schemas for Agrisense ML Inference Microservice
 Author: Imtiaz Ibna Kamal (@imtiazdeepto)
 """
 
+from typing import List, Optional, Dict
+
 try:
     from pydantic import BaseModel, Field
-    from typing import List, Optional, Dict
-except ImportError:
+except (ImportError, Exception):
     # Minimal fallback dataclasses if pydantic not yet installed
     from dataclasses import dataclass, field
     class BaseModel:
+        def __init__(self, **kwargs):
+            for k, v in kwargs.items():
+                setattr(self, k, v)
         def dict(self):
             return self.__dict__
     Field = lambda *args, **kwargs: None

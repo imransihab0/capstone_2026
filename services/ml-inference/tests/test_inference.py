@@ -60,6 +60,23 @@ class TestMLInferencePipeline(unittest.TestCase):
         self.assertEqual(result["price_status"], "suspiciously_low")
         self.assertIn("Verify product seal", result["recommendation"])
 
+    def test_model_comparison_metrics(self):
+        from app.main import get_comparison_data
+
+        data = get_comparison_data()
+        self.assertIn("comparison_table", data)
+        self.assertEqual(len(data["comparison_table"]), 4)
+
+        # Verify selected model is Random Forest
+        selected_models = [m for m in data["comparison_table"] if m.get("selected")]
+        self.assertEqual(len(selected_models), 1)
+        self.assertEqual(selected_models[0]["algorithm"], "Random Forest Classifier")
+        self.assertGreaterEqual(selected_models[0]["accuracy"], 0.94)
+
+        # Verify price regression models
+        self.assertIn("price_regression_task", data)
+        self.assertEqual(len(data["price_regression_task"]["algorithms"]), 4)
+
 
 if __name__ == "__main__":
     unittest.main()
